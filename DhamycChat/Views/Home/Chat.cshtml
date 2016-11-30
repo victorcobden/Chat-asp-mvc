@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+}
+
+<h2>Chat</h2>
+<div class="container">
+    <div class="row chat-window col-xs-12 col-sm-6 col-md-4 col-lg-3" id="chat_window_1" style="margin-left:10px;">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="col-xs-6">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat General</h3>
+                    </div>
+                    <div class="col-xs-6" style="text-align: right;">
+                        <a href="#"><span id="minim_chat_window" data-toggle="tooltip" data-placement="bottom" title="Minimizar" class="icon-chat glyphicon glyphicon-minus icon_minim"></span></a>
+                        <a href="#"><span id="clear_chat_window" data-toggle="tooltip" data-placement="bottom" title="Eliminar mensajes" class="icon-chat glyphicon glyphicon-trash icon_clear"></span></a>
+                        <a href="#"><span id="clear_chat_window" data-toggle="tooltip" data-placement="bottom" title="Cambiar nick" class="icon-chat glyphicon glyphicon-user icon_user"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body msg_container_base">
+
+
+                </div>
+                <div class="panel-footer">
+                    <form id="formChat" autocomplete="off">
+                        <div class="input-group">
+                            <input id="message" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                            <input type="hidden" id="displayName" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-sm" type="submit" id="sendMessage">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/chat")
+
+}
